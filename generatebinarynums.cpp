@@ -2,6 +2,8 @@
 #include <string>
 using namespace std;
 //program to Generate Binary Numbers from 1 to n
+//g++ 4.8.1 doesn't support to_string method so we use old version of g++ in the following way
+//g++ -std=c++11 filename.cpp -o outputfilename
 int main()
 {	int a;
 	cout<<"enter number";

@@ -180,9 +180,9 @@ def main():
     # Initialize trainer
     # gpu_id=2
     # device = f'cuda:{torch.cuda.current_device()}' if torch.cuda.is_available() else 'cpu'#torch.device(f"cuda:{gpu_id}" if torch.cuda.is_available() else "cpu")
-    global_train_batch_size = 2
-    global_test_batch_size = 2
-    global_eval_batch_size = 2
+    global_train_batch_size = 8
+    global_test_batch_size = 8
+    global_eval_batch_size = 8
     device_train_batch_size = global_train_batch_size // dist.get_world_size()
     device_test_batch_size = global_test_batch_size // dist.get_world_size()
     device_eval_batch_size = global_eval_batch_size // dist.get_world_size()

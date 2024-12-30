@@ -180,18 +180,18 @@ def main():
     # Initialize trainer
     # gpu_id=2
     # device = f'cuda:{torch.cuda.current_device()}' if torch.cuda.is_available() else 'cpu'#torch.device(f"cuda:{gpu_id}" if torch.cuda.is_available() else "cpu")
-    global_train_batch_size = 8
-    global_test_batch_size = 8
-    global_eval_batch_size = 8
-    device_train_batch_size = global_train_batch_size // dist.get_world_size()
-    device_test_batch_size = global_test_batch_size // dist.get_world_size()
-    device_eval_batch_size = global_eval_batch_size // dist.get_world_size()
-    train_dataloader, eval_dataloader = create_dataloaders(tokenized_dataset, device_train_batch_size, device_eval_batch_size)
+    # global_train_batch_size = 8
+    # global_test_batch_size = 8
+    # global_eval_batch_size = 8
+    # device_train_batch_size = global_train_batch_size // dist.get_world_size()
+    # device_test_batch_size = global_test_batch_size // dist.get_world_size()
+    # device_eval_batch_size = global_eval_batch_size // dist.get_world_size()
+    # train_dataloader, eval_dataloader = create_dataloaders(tokenized_dataset, device_train_batch_size, device_eval_batch_size)
 
     trainer = Trainer(
         model=composer_model,
-        train_dataloader=train_dataloader, #DataLoader(tokenized_dataset['latest'], batch_size=1, shuffle=True),
-        eval_dataloader=eval_dataloader, #DataLoader(tokenized_dataset['latest'], batch_size=1, shuffle=True),
+        train_dataloader=DataLoader(tokenized_dataset['latest'], batch_size=1, shuffle=True),
+        eval_dataloader=DataLoader(tokenized_dataset['latest'], batch_size=1, shuffle=True),
         max_duration="2ba",
         load_weights_only=True,
         load_strict_model_weights=False,

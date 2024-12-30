@@ -194,7 +194,7 @@ def main():
         model=composer_model,
         train_dataloader=DataLoader(tokenized_dataset['latest'], batch_size=1, shuffle=True),
         eval_dataloader=DataLoader(tokenized_dataset['latest'], batch_size=1, shuffle=True),
-        max_duration="2ba",
+        max_duration="2ep",
         load_weights_only=True,
         load_strict_model_weights=False,
         optimizers=optimizer,
@@ -202,7 +202,7 @@ def main():
         device='gpu' if torch.cuda.is_available() else 'cpu',
         precision='fp32',
         seed=17,
-        save_interval='2ba',
+        save_interval='1ep',
         # device_train_microbatch_size='8'
         
     )

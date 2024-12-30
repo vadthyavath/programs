@@ -137,7 +137,7 @@ def main():
     # torch.distributed.init_process_group(backend='nccl', init_method='env://', timeout=timedelta(seconds=5400))
     from composer.utils import dist
 
-    os.environ["CUDA_VISIBLE_DEVICES"] = "3"
+    os.environ["CUDA_VISIBLE_DEVICES"] = "2"
     gpu_id = 0
     device = torch.device(f'cuda:{gpu_id}')
     # torch.cuda.set_device(gpu_id)

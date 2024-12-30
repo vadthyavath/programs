@@ -122,12 +122,14 @@ class LlamaHFModel(HuggingFaceModel):
             attention_mask=batch['attention_mask'],
             labels=batch['input_ids']
         )
+        print("loss_forward", outputs.loss)
         return outputs
 
     def eval_forward(self, batch, outputs=None):
         return self.forward(batch)
 
     def loss(self, outputs, batch):
+        print("loss", outputs.loss)
         return outputs.loss
 
 def main():

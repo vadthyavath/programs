@@ -133,7 +133,7 @@ class LlamaHFModel(HuggingFaceModel):
 def main():
      # Set GPU
     gpu_id = 0  # Change this to use different GPU
-    torch.cuda.set_device(gpu_id)
+    # torch.cuda.set_device(gpu_id)
     # torch.distributed.init_process_group(backend='nccl', init_method='env://', timeout=timedelta(seconds=5400))
     from composer.utils import dist
 
